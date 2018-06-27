@@ -1,0 +1,93 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.community.dao.CommunityDAO">
+    <!--目的：为dao方法提供SQL语句配置-->
+    <insert id="insert">
+        INSERT  INTO community (name,type,college,builder,phone,introduce,create_time,num)
+        VALUES ( #{name},#{type},#{college},#{builder},#{phone} ,#{introduce},#{createTime},#{num})
+    </insert>
+    
+	<delete id="delete">
+		DELETE  FROM community WHERE id=#{id}
+	</delete>
+	
+    <select id="queryAll" resultType="Community" >
+        SELECT *       		
+        FROM community ORDER BY id DESC 
+        LIMIT #{offset}, #{pageSize}
+    </select>   
+   
+    <select id="queryWithType" resultType="Community" >
+        SELECT   *    		
+        FROM community 
+        WHERE type=#{type}
+        ORDER BY id DESC 
+        LIMIT #{offset}, #{pageSize}
+    </select> 
+      
+	<select id="queryWithName" resultType="Community" >
+        SELECT *      		
+        FROM community 
+        WHERE name like "%"#{name}"%"
+        ORDER BY id DESC 
+        LIMIT #{offset}, #{pageSize}
+    </select>
+	<select id="querySingleWithPhone" resultType="Community" >
+        SELECT *      		
+        FROM community 
+        WHERE phone=#{phone}
+    </select>
+    
+    <select id="queryWithCollege" resultType="Community" >
+        SELECT *       		
+        FROM community 
+        WHERE college like "%"#{college}"%"
+        ORDER BY id DESC 
+        LIMIT #{offset}, #{pageSize}
+    </select>
+    
+     <select id="queryWithId" resultType="Community" >
+        SELECT *			
+        FROM community         
+        WHERE id=#{id}
+    </select>
+     <select id="querySingleWithName" resultType="Community" >
+        SELECT *			
+        FROM community         
+        WHERE name=#{name}
+    </select>
+    	
+	<update id="update" >
+		UPDATE community SET type=#{type},college=#{college},builder=#{builder},
+		phone=#{phone},introduce=#{introduce},rule=#{rule}
+		WHERE id=#{id}
+	</update>
+	
+	<update id="updateNum" >
+		UPDATE community  SET num=num+1
+		WHERE name=#{clubName}
+	</update>
+	
+    <select id="countAll" resultType="int" >
+        SELECT count(*)			
+        FROM community         
+    </select>
+    	
+     <select id="countType" resultType="int" >
+        SELECT count(*)			
+        FROM community  WHERE type=#{type}       
+    </select>
+    		
+     <select id="countName" resultType="int" >
+        SELECT count(*)			
+        FROM community  WHERE name like "%"#{name}"%"       
+    </select>
+    	
+	
+     <select id="countCollege" resultType="int" >
+        SELECT count(*)			
+        FROM community WHERE college like "%"#{college}"%"        
+    </select>	
+	
+</mapper>

@@ -1,0 +1,68 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.community.dao.ApplyDAO">
+    <!--目的：为dao方法提供SQL语句配置-->
+    <insert id="insert">
+        INSERT  INTO apply (user_id, club_name,reason,apply_time)
+        VALUES ( #{userId},#{clubName},#{reason},#{applyTime})
+    </insert>
+ 	<select id="queryByApplyId" resultType="apply">
+ 		SELECT * FROM apply WHERE apply_id=#{applyId}
+ 	</select>
+	<select id="queryByUserId" resultType="apply">
+		SELECT 
+			c.name "community.name",
+  			c.type "community.type",
+			c.college "community.college",
+			a.apply_time,
+			a.check
+		FROM apply a JOIN community c ON a.club_name=c.name
+		WHERE user_id=#{userId}
+		ORDER BY apply_time DESC
+	</select>
+	<select id="queryByClub" resultType="apply">
+		SELECT 
+			a.apply_id,
+			u.user_name "user.userName",
+			u.college "user.college",
+			u.grade "user.grade",
+			a.apply_time,
+			a.check
+		FROM apply a JOIN community c ON a.club_name=c.name
+		JOIN user u ON a.user_id=u.user_id
+		WHERE  club_name=#{clubName} AND a.check=-1
+		ORDER BY apply_time DESC
+		LIMIT #{offset},#{pageSize}
+	</select>
+	<select id="queryByUserName" resultType="apply">
+		SELECT 
+			a.apply_id,
+			u.user_name "user.userName",
+			u.college "user.college",
+			u.grade "user.grade",
+			a.apply_time,
+			a.check
+		FROM apply a JOIN community c ON a.club_name=c.name
+		JOIN user u ON a.user_id=u.user_id
+		WHERE  club_name=#{clubName} AND a.check=-1 AND u.user_name=#{userName}
+		ORDER BY apply_time DESC
+		LIMIT #{offset},#{pageSize}
+	</select>
+	
+	<update id="updateCheck">
+		UPDATE apply a set a.check=#{check} WHERE apply_id=#{applyId}
+	</update>
+	<select id="countByUserId" resultType="int">
+		SELECT count(*) FROM apply WHERE user_id=#{userId}
+	</select>
+	<select id="countByClub" resultType="int">
+		SELECT count(*) FROM apply a WHERE a.check=-1 AND  club_name=#{clubName}
+	</select>
+	<select id="countByClubAndUserName" resultType="int">
+		SELECT count(*)
+		FROM apply a JOIN community c ON a.club_name=c.name
+		JOIN user u ON a.user_id=u.user_id
+		WHERE  club_name=#{clubName} AND a.check=-1 AND u.user_name=#{userName}
+	</select>
+</mapper>

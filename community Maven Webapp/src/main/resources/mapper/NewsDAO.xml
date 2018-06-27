@@ -1,0 +1,67 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.community.dao.NewsDAO">
+    <!--目的：为dao方法提供SQL语句配置-->
+    <insert id="insert">
+        INSERT  INTO news (title,writer,content,type,creat_time)
+        VALUES (#{title},#{writer},#{content},#{type},#{creatTime})
+    </insert>
+
+	<delete id="delete">
+		DELETE FROM news WHERE news_id=#{newsId}
+	</delete>
+	
+    <select id="queryByCommunity" resultType="News" >
+        SELECT * FROM news
+        WHERE c_id = #{cId} AND type=#{type}
+        ORDER BY creat_time DESC
+    </select>
+    
+	<select id="queryAllByType" resultType="News" >
+		SELECT * FROM news
+        WHERE type = #{type} 
+        ORDER BY creat_time DESC 
+         LIMIT #{offset}, #{pageSize}
+	</select>
+	<select id="queryAllByWriter" resultType="News" >
+		SELECT * FROM news
+        WHERE writer = #{writer} 
+        ORDER BY creat_time DESC 
+         LIMIT #{offset}, #{pageSize}
+	</select>
+	<select id="queryAll" resultType="News" >
+		SELECT * FROM news      
+        ORDER BY creat_time DESC 
+         LIMIT #{offset}, #{pageSize}
+	</select>
+	
+	<select id="queryByType" resultType="News" parameterType="String">
+		SELECT * FROM news
+        WHERE type = #{type} 
+        ORDER BY creat_time DESC LIMIT 0,8
+	</select>
+	
+	<select id="queryByNewsId" resultType="News" > 
+		SELECT * FROM news WHERE news_id=#{newsId} 
+	</select>
+	
+	<update id="update" parameterType="News">
+		UPDATE news SET title=#{title},writer=#{writer},content=#{content},type=#{type},creat_time=#{creatTime}
+		WHERE news_id=#{newsId}
+	</update>
+	<select id="newsCount" resultType="int"> 
+		SELECT count(*) FROM news WHERE type = #{type} 
+	</select>
+	<select id="newsCountWriter" resultType="int"> 
+		SELECT count(*) FROM news WHERE writer = #{writer} 
+	</select>
+	<select id="newsCountAll" resultType="int"> 
+		SELECT count(*) FROM news
+	</select>
+	
+	
+	
+	
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="community Maven Webapp"
+  id="myeclipse.1522739799106"
+  context-root="/community"
+  j2ee-spec="1.7"
+  archive="community Maven Webapp.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

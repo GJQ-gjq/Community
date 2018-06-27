@@ -1,0 +1,24 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.community.dao.TypeDAO">
+    <!--目的：为dao方法提供SQL语句配置-->
+    <insert id="insert">
+        INSERT  INTO type (type_id, type_name)
+        VALUES ( #{typeId},#{typeName})
+    </insert>
+
+	<select id="queryAll" resultType="Type">
+		SELECT * FROM type LIMIT #{offset},#{pageSize}
+	</select>
+	<select id="queryByName" resultType="Type">
+		SELECT * FROM type WHERE type_name=#{typeName} LIMIT #{offset},#{pageSize}
+	</select>
+	<select id="queryMaxId" resultType="int">
+		SELECT MAX(type_id) FROM type 
+	</select>
+	
+	<delete id="delete">
+		DELETE  FROM type WHERE type_id=#{typeId}
+	</delete>
+</mapper>

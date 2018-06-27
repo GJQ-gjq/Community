@@ -1,0 +1,32 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.community.dao.AdminDAO">
+    <!--目的：为dao方法提供SQL语句配置-->
+    <insert id="insert">
+        INSERT  INTO admin (admin_name, admin_password,sex,college)
+        VALUES ( #{adminName},#{adminPassword},#{sex},#{college} )
+    </insert>
+
+    <select id="queryByNameAndPsw" resultType="Admin" >
+        SELECT * FROM admin
+        WHERE admin_name = #{adminName} AND admin_password=#{adminPassword}
+    </select>   
+   
+    <select id="queryByName" resultType="Admin" >
+        SELECT * FROM admin
+        WHERE admin_name = #{adminName}
+    </select>   
+	
+	<select id="queryAll" resultType="Admin">
+		SELECT * FROM admin
+	</select>
+	
+	<update id="updatePassword" >
+		UPDATE admin SET admin_password=#{adminPassword}
+		WHERE admin_id=#{adminId}
+	</update>
+	<delete id="delete">
+		DELETE  FROM admin WHERE admin_id=#{adminId}
+	</delete>
+</mapper>

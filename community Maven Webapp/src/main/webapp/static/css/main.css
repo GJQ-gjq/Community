@@ -1,0 +1,418 @@
+*{padding: 0;margin: 0;}
+a{
+	text-decoration: none;
+	color: #888C90;
+}
+body{
+	font-family: '微软雅黑';
+	font-size: 14px;
+	color: #888c90;
+}
+/*top*/
+.top{
+	width: 1000px;
+	margin: 0 auto;
+}
+.top .container{
+	width: 1000px;
+}
+.header{
+	height: 60px;
+}
+.header span{
+	font-family: SimSun;
+	font-weight: 600;
+	line-height: 60px;
+	float: left;
+	margin-left: 20px;
+	font-size: 26px;
+	color: #000;
+}
+.header ul{
+	float: right;
+	line-height: 60px;
+	margin-right: 10px;
+}
+.header ul li {
+	list-style: none;
+	float: left;
+	color: #5d5d5d;
+}
+.header ul li a{
+	font-size: 14px;
+	padding: 0 5px;
+	color: #5d5d5d;
+	text-decoration: none;
+}
+.nav{
+	background: #FA710D;
+}.nav ul li a{
+	color: #fff;
+}
+
+.nav ul li a:visited{
+	background-color: #FA710D;
+}
+.nav ul li a:hover{
+	background-color: #FCB17A;
+}
+/*middle*/
+.middle{
+	width: 1000px;
+	margin: 0 auto;
+}
+.middle .container{
+	width: 1000px;
+	padding-left: 0;
+	padding-right: 0;
+}
+.middle .title1{
+	height: 42px;
+	line-height: 42px;
+	margin-top: 10px;
+	padding-left: 8px;
+	border-bottom: 1px solid;
+	border-bottom-color:#FA710D ;
+}
+.middle .title1 span{
+	float: right;
+	padding-right: 8px;
+}
+.middle .title1 span a{
+	color: #5d5d5d;
+	text-decoration: none;
+	cursor:pointer;
+}
+.sitebar2 ul{
+	padding-left:8px ;
+}
+.sitebar2 ul li{
+	list-style: none;
+	padding: 5px 0;
+}
+.sitebar2 ul li a{
+	font-size: 12px;
+	color: #5d5d5d;
+	text-decoration: none;
+}
+.newsInfo{
+	padding-top:40px ;
+	border-bottom: 1px solid #eee;
+}
+.newsInfo h4 {
+	text-align: center;
+}
+.newsInfo h4 a{
+	color: #F70B19;
+	text-decoration: none;
+	cursor:pointer;
+}
+.newsInfo p{
+	font-size: 12px;
+	color: #ADADAD;
+	line-height: 20px;
+	padding:2px ;
+}
+.newsInfo p a{
+	color: #F70B19;
+	text-decoration: none;
+	cursor:pointer;
+}
+.newsList{
+	margin-top: 10px;
+}
+.newsList .nav{
+	background-color:#FFFFFF;
+	border-bottom-color:#FA710D ;	
+}
+.newsList .nav-tabs li.active a,.newsList .nav-tabs li.active a:focus,.newsList .nav-tabs li.active a:hover{	
+	color: #fff;
+	background-color: #FA710D;
+}
+.newsList .nav-tabs  a{
+	color: #5D5D5D;
+}
+.newsList .nav li{
+	width: 100px;
+	text-align: center;	
+}
+.newsList .tab-pane ul li{
+	list-style: none;	
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #eee;
+}
+.newsList .tab-pane ul li a{
+	text-decoration: none;
+	color: #5D5D5D;
+}
+.newsList .tab-pane ul li span{
+	color: #5D5D5D;
+	float: right;
+}
+/*middle结束*/
+.foot{
+	width: 1000px;
+	margin: 0 auto;
+	padding-bottom: 12px;
+}
+.foot .container{
+	width: 1000px;
+}
+.foot ul{
+	margin-top: 12px;
+	padding-left: 10px;
+	float: left;
+}
+.foot ul li{
+	list-style: none;
+	font-size: 12px;
+	color: #5d5d5d;
+	padding: 3px 0;
+}
+.foot div{
+	float: right;
+	margin-top:15px ;
+}
+.foot div a{
+	margin-right: 30px;
+}
+/*登陆页开始*/
+.middle .form1{
+	padding-top: 50px;
+	border-right: 1px solid;
+	border-bottom: 0px;
+	height:459px ;
+}
+.middle .form1 .line1{
+	margin:0 auto;
+	width: 80%;
+	height:1px;
+	border:none;
+	border-top:1px dashed ;
+	padding-top: 20px;
+	padding-bottom: 30px;
+}
+.middle .form1right{
+	padding-top: 120px;
+	height:459px ;
+}
+/*news开始*/
+.leftmenu{
+	background-color: rgb(243, 243, 243);
+	height: 650px;
+}
+.leftmenu h3{
+	padding-left: 40px;
+	color: #CC0000;
+	height: 70px;
+	line-height: 70px;
+	border-bottom: 1px dashed #CCCCCC;
+}
+.menuson {
+	padding-top:20px;	
+}
+.menuson li{	
+	list-style: none;
+	border-bottom:1px dashed #CCCCCC;	
+}
+.menuson  li a{
+	display: inline-block;
+	padding-left:40px;
+	height:45px;
+	line-height:45px;
+	width: 100%;
+	color:#5D5D5D;
+	text-decoration: none;
+}
+.menuson li.active{
+	background-color: #FA710D;
+}
+.menuson li.active a{
+	color:#fff;
+	}
+/*社团申请页面*/
+.apply .nav{
+	padding-top: 8px;
+	background-color: #fff;
+}
+.apply .nav-tabs li.active a,.apply .nav-tabs li.active a:focus,.apply .nav-tabs li.active a:hover{	
+	color: #fff;
+	background-color: #FA710D;
+}
+.apply a{
+	color: #5D5D5D;
+}
+.apply form{
+	padding-top: 20px;
+}
+.apply .tab-pane{
+	padding-top: 20px;
+}
+.apply label{
+	font-weight: normal;
+}
+/*社团申请状态*/
+.apply thead{
+	background-color:rgb(243, 243, 243);
+}
+.apply thead tr th{
+	font-weight: normal;	
+	color: #5D5D5D;
+}
+/*社团检索*/
+.typesearch{
+	padding-top: 15px;
+	padding-left: 40px;
+	height: 55px;
+	border-bottom: 1px dashed #CCCCCC;
+}
+.typesearch ul li{
+	list-style: none;
+	float: left;
+	padding-right: 25px;
+	text-align: center;
+	line-height:24px ;
+}
+.typesearch  a.active{
+	background-color: #FA710D;
+	color: #FFFFFF;	
+}
+.typesearch ul li a{
+	display: inline-block;
+	height:24px ;
+	min-width:56px ;
+	text-decoration: none;
+	color: #039;
+	cursor:pointer;
+}
+.typesearch ul li a:hover{
+	color: #FF6600;
+	background-color: #f3edc2;
+}
+.searchbar{
+	padding-top: 15px;
+	padding-left: 40px;
+	height: 55px;
+	border-bottom: 1px dashed #CCCCCC;
+}
+.searchbar input{
+	border:solid 1px #f60;
+}
+.searchbar button{
+	background-color: #f60;
+    color: #fff;
+    border: solid 1px #f60;
+    line-height: 20px;
+    width: 40px;
+}
+.clublist{
+	padding-top: 10px;
+	margin: 0 auto;
+	width: 95%;
+}
+.clublist thead{
+	background-color:#FA710D;
+	color: #FFFFFF;	
+}
+.clublist thead tr th{
+	font-weight: normal;
+	font-size: 14px;
+}
+.clublist tbody tr td{
+	font-size: 13px;
+	border: none;
+}
+.clublist tbody tr td a{
+	color:#039 ;
+	text-decoration: none;
+}
+.page{
+	float: right;
+	padding-right: 25px;
+}
+.page .pagination{
+	margin: 0px;
+}
+.page .pagination .active a{
+	background-color: #FA710D;
+    border-color: #FA710D;
+}
+/*新闻详情*/
+.newsData{
+	padding: 8px;
+}
+.newsData h4{
+	padding: 10px 0px;
+	text-align: center;
+}
+.newsData span{
+	display: block;
+	text-align: center;
+}
+.newsData span a{
+	background-color:#FA710D ;
+	color: #fff;
+	width: 100px;
+	height: 35px;
+}
+.newsData span a:hover{
+	color: #fff;
+}
+/*社团详情*/
+.cInfo{
+	padding-top:20px ;
+	margin: 0 auto;
+	width: 800px;
+}
+.cInfo tr{
+	height:30px;
+}
+.cInfo tr td{
+	text-align: center;	
+}
+.cInfo span{
+	display: block;
+	text-align: center;
+}
+.cInfo span a{
+	background-color:#FA710D ;
+	color: #fff;
+	width: 100px;
+	height: 35px;
+}
+.cInfo span a:hover{
+	color: #fff;
+}
+/*选择用户类型*/
+.choose{
+	margin-top: 30px;
+	height: 430px;
+	border: 1px solid;
+}
+.right{
+	width:600px;
+	float: right;
+}
+.right h3{
+	padding-top:55px ;
+	padding-left: 100px;
+}
+.power ul li{
+	list-style: none;
+	float: left;
+	padding-left: 20px;	
+}
+.power a{
+	width:120px ;
+	height:120px ;
+	border: 15px solid #CCCCCC;
+	background-color:#FA710D;
+	color:#fff ;
+	font-size: 20px;
+	line-height: 80px;
+}
+.power a:hover{
+	background-color:#FA710D;
+	color:#fff ;
+}

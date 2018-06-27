@@ -1,0 +1,22 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.community.dao.FileDAO">
+    <!--目的：为dao方法提供SQL语句配置-->
+    <insert id="insert">
+        INSERT  INTO file (file_name, upload_time)
+        VALUES ( #{fileName},#{uploadTime} )
+    </insert>
+ 	
+	<select id="queryAll" resultType="File">
+		SELECT * FROM file ORDER BY upload_time DESC LIMIT #{offset},#{pageSize}
+	</select>
+	
+	<select id="count" resultType="int">
+		SELECT count(*) FROM file
+	</select>
+	
+	<delete id="delete">
+		DELETE  FROM file WHERE file_id=#{fileId}
+	</delete>
+</mapper>

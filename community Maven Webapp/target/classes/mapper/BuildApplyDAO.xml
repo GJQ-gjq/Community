@@ -1,0 +1,77 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.community.dao.BuildApplyDAO">
+    <!--目的：为dao方法提供SQL语句配置-->
+    <insert id="insert">
+        INSERT  INTO build_apply (name, type,college,user_id,apply_phone,introduce,apply_time)
+        VALUES ( #{name},#{type},#{college},#{userId},#{applyPhone},#{introduce},#{applyTime})
+    </insert>
+ 	
+	<select id="queryByCid" resultType="BuildApply">
+		SELECT 
+			b.name ,
+  			b.type ,
+			b.college ,
+			b.user_id,
+			u.user_name "user.userName",
+			b.apply_phone,
+			b.introduce
+		FROM build_apply b
+		JOIN user u ON b.user_id=u.user_id
+		WHERE c_id=#{cId}
+	</select>
+	<select id="queryByUserId" resultType="BuildApply">
+		SELECT 
+			name ,
+  			type ,
+			college ,
+			apply_time,
+			build_apply.check
+		FROM build_apply 
+		WHERE user_id=#{userId}
+		ORDER BY apply_time DESC
+	</select>
+	<select id="queryAll" resultType="BuildApply">
+		SELECT 
+			b.c_id,
+			u.user_name "user.userName",
+			b.name,
+		  	b.type,
+			b.college,
+			b.apply_phone,
+			b.apply_time,
+			b.check
+		FROM build_apply b 
+		JOIN user u ON b.user_id=u.user_id
+		WHERE b.check=-1
+		ORDER BY apply_time DESC 
+		LIMIT #{offset},#{pageSize}
+	</select>
+	<select id="queryByphone" resultType="BuildApply">
+		SELECT 
+			b.c_id,
+			u.user_name "user.userName",
+			b.name,
+		  	b.type,
+			b.college,
+			b.apply_phone,
+			b.apply_time,
+			b.check
+		FROM build_apply b 
+		JOIN user u ON b.user_id=u.user_id
+		WHERE apply_phone=#{phone} AND b.check=-1
+		ORDER BY apply_time DESC 
+		LIMIT #{offset},#{pageSize}
+	</select>
+	
+	<update id="updateCheck">
+		UPDATE build_apply b set b.check=#{check} WHERE c_id=#{cId}
+	</update>
+	<select id="countAll" resultType="int">
+		SELECT count(*) FROM build_apply b WHERE b.check=-1
+	</select>
+	<select id="countByPhone" resultType="int">
+		SELECT count(*) FROM build_apply b WHERE b.check=-1 AND apply_phone=#{phone}
+	</select>
+</mapper>

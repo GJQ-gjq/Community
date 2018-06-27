@@ -1,0 +1,12 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.community.dao.VideoDAO">
+	<insert id="insert">
+	INSERT INTO video (v_url) VALUES(#{url})
+	</insert>
+	<select id="qureyTwo" resultType="Video">
+	SELECT * FROM video ORDER BY v_id DESC LIMIT 0,2
+	</select>
+</mapper>

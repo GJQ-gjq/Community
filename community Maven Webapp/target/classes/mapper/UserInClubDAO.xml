@@ -1,0 +1,52 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.community.dao.UserInClubDAO">
+	<insert id="insert">
+	INSERT INTO userinclub (user_id,club_name,in_time) VALUES(#{userId},#{clubName},#{inTime})
+	</insert>
+	<select id="queryByClub" resultType="UserInClub">
+	  SELECT 
+	  	 	uc.id,
+	  	 	uc.user_id,	 
+			u.user_name "user.userName",
+			u.user_sex "user.userSex",
+			u.college "user.college",
+			u.grade "user.grade",
+			uc.in_time
+	  FROM userinclub uc
+	  JOIN user u ON uc.user_id=u.user_id
+	  WHERE uc.club_name=#{clubName}
+	  ORDER BY in_time DESC 
+	  LIMIT #{offset},#{pageSize}
+	</select>
+	<select id="queryByClubAndUserName" resultType="UserInClub">
+	  SELECT 
+	  	 	uc.id,
+	  	 	uc.user_id,		 
+			u.user_name "user.userName",
+			u.user_sex "user.userSex",
+			u.college "user.college",
+			u.grade "user.grade",
+			uc.in_time
+	  FROM userinclub uc
+	  JOIN user u ON uc.user_id=u.user_id
+	  WHERE uc.club_name=#{clubName}
+	  AND u.user_name=#{userName}
+	  ORDER BY in_time DESC 
+	  LIMIT #{offset},#{pageSize}
+	</select>
+	<select id="countAll" resultType="int">
+		SELECT count(*) FROM userinclub WHERE club_name=#{clubName}
+	</select>
+	<select id="countByUserName" resultType="int">
+		SELECT count(*) FROM userinclub uc 
+		JOIN user u ON uc.user_id=u.user_id  
+		WHERE uc.club_name=#{clubName}
+	  	AND u.user_name=#{userName}
+	</select>
+	<delete id="delete">
+		DELETE FROM userinclub WHERE id=#{id}
+	</delete>
+</mapper>
